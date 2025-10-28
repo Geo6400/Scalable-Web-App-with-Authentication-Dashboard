@@ -175,3 +175,55 @@ Convert to Next.js for SSR if SEO is needed.
 This project demonstrates a secure, scalable, and production-ready web app architecture. It includes a clean React dashboard, Express backend, JWT authentication, and MongoDB persistence — fulfilling every assignment criterion.
 
 This project demonstrates a secure, scalable, and production-ready web app architecture. It includes a clean React dashboard, Express backend, JWT authentication, and MongoDB persistence — fulfilling every assignment criterion.
+
+🧠 Backend — .env
+# Server Configuration
+PORT=5000
+NODE_ENV=development
+
+
+# Database Connection
+MONGO_URI=mongodb://localhost:27017/webappdb
+
+
+# JWT Settings
+JWT_SECRET=your_super_secret_key
+JWT_EXPIRES_IN=7d
+
+
+# CORS Settings
+CORS_ORIGIN=http://localhost:5173
+
+
+# Optional Security Enhancements
+RATE_LIMIT_WINDOW_MS=900000  # 15 minutes
+RATE_LIMIT_MAX=100            # max requests per window per IP
+
+🗒️ Notes:
+
+Change JWT_SECRET to a strong unique key in production.
+
+Use your deployed frontend URL for CORS_ORIGIN.
+
+For cloud MongoDB, use a connection string like:
+
+MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/webappdb
+💻 Frontend — .env
+# API Base URL
+REACT_APP_API_URL=http://localhost:5000/api
+
+
+# Optional: Frontend Behavior
+REACT_APP_ENV=development
+REACT_APP_APP_NAME=ScalableWebApp
+
+🗒️ Notes:
+
+For production deployment, update REACT_APP_API_URL to your backend’s public URL.
+
+These variables are automatically loaded by Vite/React during build time.
+
+✅ Summary
+Environment	File	Key Purpose
+Backend	.env	Manages server, database, JWT, and CORS config
+Frontend	.env	Points to backend API and sets app-level metadata
